@@ -11,7 +11,7 @@ aic-scaffold: appended 2 lines to .gitignore (append, ignibyte/aic-framework)
 ```
 
 ```sh
-composer require ignibyte/aic-scaffold
+composer require --dev ignibyte/aic-scaffold
 composer config allow-plugins.ignibyte/aic-scaffold true
 ```
 
