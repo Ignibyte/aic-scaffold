@@ -1,0 +1,33 @@
+{
+    "name": "ignibyte/aic-scaffold",
+    "description": "AIC's Composer plugin: on every install and update it writes and keeps an app's root files from the ignibyte/aic-* packages that own them, then runs their scaffolders.",
+    "license": "MIT",
+    "type": "composer-plugin",
+    "keywords": [
+        "composer-plugin",
+        "scaffold",
+        "aic"
+    ],
+    "homepage": "https://github.com/Ignibyte/aic-nextgen",
+    "support": {
+        "issues": "https://github.com/Ignibyte/aic-nextgen/issues",
+        "source": "https://github.com/Ignibyte/aic-nextgen"
+    },
+    "require": {
+        "php": "^8.5",
+        "composer-plugin-api": "^2.6"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "AIC\\Scaffold\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        },
+        "class": "AIC\\Scaffold\\Infrastructure\\ScaffoldPlugin"
+    }
+}
