@@ -1,5 +1,10 @@
 # ignibyte/aic-scaffold
 
+[![Latest version](https://img.shields.io/packagist/v/ignibyte/aic-scaffold)](https://packagist.org/packages/ignibyte/aic-scaffold)
+[![PHP](https://img.shields.io/packagist/dependency-v/ignibyte/aic-scaffold/php)](https://packagist.org/packages/ignibyte/aic-scaffold)
+[![License](https://img.shields.io/packagist/l/ignibyte/aic-scaffold)](LICENSE)
+[![Downloads](https://img.shields.io/packagist/dt/ignibyte/aic-scaffold)](https://packagist.org/packages/ignibyte/aic-scaffold/stats)
+
 A Composer plugin that writes an AIC app's root files and keeps them current. After every
 `composer install` and `composer update` it reads `extra.aic-scaffold` from each installed
 `ignibyte/aic-*` package and applies it, then prints one line per file:
