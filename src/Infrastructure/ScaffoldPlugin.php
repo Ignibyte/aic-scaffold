@@ -50,6 +50,11 @@ final readonly class ScaffoldPlugin implements EventSubscriberInterface, PluginI
     private const string VENDOR = 'ignibyte/aic-';
 
     /**
+     * The script-event priority: above the default 0, so the scaffold runs first.
+     */
+    private const int PRIORITY = 10;
+
+    /**
      * Says, when Composer runs verbose, which root the plugin keeps; the work happens on the script events.
      *
      * @param Composer    $composer The running Composer.
@@ -170,14 +175,19 @@ final readonly class ScaffoldPlugin implements EventSubscriberInterface, PluginI
     }
 
     /**
-     * @return array<string, string> Each script event and the method that handles it.
+     * Runs ahead of the other plugins' handlers for the same events (priority
+     * self::PRIORITY), so the files it writes are there when they run:
+     * captainhook/hook-installer reads the `captainhook.json` that `aic-gate init`
+     * writes, and installs no hooks while it is missing.
+     *
+     * @return array<string, array{string, int}> Each script event, the method that handles it and its priority.
      */
     #[Override]
     public static function getSubscribedEvents(): array
     {
         return [
-            ScriptEvents::POST_INSTALL_CMD => 'scaffold',
-            ScriptEvents::POST_UPDATE_CMD => 'scaffold',
+            ScriptEvents::POST_INSTALL_CMD => ['scaffold', self::PRIORITY],
+            ScriptEvents::POST_UPDATE_CMD => ['scaffold', self::PRIORITY],
         ];
     }
 }
